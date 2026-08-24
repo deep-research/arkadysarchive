@@ -1,0 +1,4 @@
+baseURL: https://arkadysarchive.com/
+locale: en-us
+title: Arkady's Archive
+theme: ["PaperMod"]
