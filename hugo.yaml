@@ -12,6 +12,8 @@ minify:
   disableXML: true
   minifyOutput: true
 
+googleAnalytics: "G-GMZ6Q8LXT2"
+
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Arkady's Archive
@@ -82,13 +84,13 @@ params:
   #   - name: github
   #     url: "https://github.com/"
 
-  analytics:
-    google:
-      SiteVerificationTag: "G-GMZ6Q8LXT2"
-    bing:
-      SiteVerificationTag: "XYZabc"
-    yandex:
-      SiteVerificationTag: "XYZabc"
+  # analytics:
+  #   google:
+  #     SiteVerificationTag: "XYZabc"
+  #   bing:
+  #     SiteVerificationTag: "XYZabc"
+  #   yandex:
+  #     SiteVerificationTag: "XYZabc"
 
   cover:
     hidden: true # hide everywhere but not in structured data
@@ -113,12 +115,12 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: categories
-      name: categories
+    - identifier: Categories
+      name: Categories
       url: /categories/
       weight: 10
-    - identifier: tags
-      name: tags
+    - identifier: Tags
+      name: Tags
       url: /tags/
       weight: 20
     # - identifier: example
