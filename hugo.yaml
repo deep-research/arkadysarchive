@@ -3,6 +3,9 @@ locale: en-us
 title: Arkady's Archive
 theme: ["PaperMod"]
 
+pagination:
+  pagerSize: 5
+
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
@@ -40,7 +43,8 @@ params:
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
-  comments: false
+  comments: true
+  enableDisqus: true
   hidemeta: false
   hideSummary: false
   showtoc: false
@@ -76,9 +80,9 @@ params:
         url: tags
 
   # home-info mode
-  # homeInfoParams:
-  #   Title: "Hi there \U0001F44B"
-  #   Content: Welcome to my blog
+  homeInfoParams:
+    Title: Home
+    Content: 
 
   # socialIcons:
   #   - name: x
@@ -143,9 +147,20 @@ menu:
       name: About
       url: /about/
       weight: 50
+
+    # - identifier: Example
+    #   name: example.org
+    #   url: https://example.org
+    #   weight: 40
+
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
+
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
   highlight:
     noClasses: false
     # anchorLineNos: true
@@ -153,3 +168,9 @@ markup:
     # guessSyntax: true
     # lineNos: true
     # style: monokai
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
