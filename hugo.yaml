@@ -28,7 +28,7 @@ params:
   keywords: [News, Portfolio, Science, Chemistry, Religion]
   author: Arkady Fisher
   # author: ["Me", "You"] # multiple authors
-  # images: ["<link or path of image for opengraph, twitter-cards>"]
+  images: ["/assets/seoCard.png"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
