@@ -39,8 +39,11 @@ jobs:
       - name: Setup Hugo and Dart Sass
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.140.0' # Set to a stable v0.140+ version since 0.164.0 does not exist
+          hugo-version: '0.164.0' # Restored to your original version to support PaperMod
           extended: true
+
+      - name: Install Dart Sass Embedded
+        run: sudo npm install -g sass-embedded
 
       - name: Setup Pages
         id: pages
