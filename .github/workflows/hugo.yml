@@ -30,27 +30,18 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    env:
-      HUGO_VERSION: 0.164.0
     steps:
-      - name: Install Hugo CLI
-        run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com{HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      
-      - name: Install Dart Sass
-        run: |
-          SASS_VERSION="1.77.8"
-          wget https://github.com{SASS_VERSION}/dart-sass-${SASS_VERSION}-linux-x64.tar.gz
-          tar -xzf dart-sass-${SASS_VERSION}-linux-x64.tar.gz
-          sudo cp -r dart-sass/* /usr/local/bin/
-          rm -rf dart-sass dart-sass-${SASS_VERSION}-linux-x64.tar.gz
-
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          
+
+      - name: Setup Hugo and Dart Sass
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.140.0' # Set to a stable v0.140+ version since 0.164.0 does not exist
+          extended: true
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
