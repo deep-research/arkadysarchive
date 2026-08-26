@@ -4,7 +4,7 @@ layout: "about"
 url: "/about/"
 ---
 
-## Arkady's Archive
+## Description
 
 Arkady's Archive is a website featuring news and science work by Arkady Fisher. It can be accessed at [arkadysarchive.com](https://arkadysarchive.com).
 
