@@ -14,4 +14,4 @@ The news category can be found at [newspsychic.com](https://newspsychic.com), an
 
 ## Contact
 
-Emails can be sent to: [arkadysarchive@proton.me](mailto:arkadysarchive@proton.me).
+Send emails to: [arkadysarchive@proton.me](mailto:arkadysarchive@proton.me).
