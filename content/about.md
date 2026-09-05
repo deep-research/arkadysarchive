@@ -14,7 +14,7 @@ The news category can be found at [newspsychic.com](https://newspsychic.com), an
 
 ## Related Project
 
-Arkady's Archive is a spin off of Victor's Archive, a music focused digital archive. The site can be viewed at [victorsarchive.com](https://victorsarchive.com).
+Arkady's Archive is a spin off of Victor's Archive, which is a music focused digital archive. The site can be viewed at [victorsarchive.com](https://victorsarchive.com).
 
 ## Contact
 
