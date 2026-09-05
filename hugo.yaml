@@ -1,6 +1,6 @@
 baseURL: https://arkadysarchive.com/
-locale: en-us
-title: Arkady's Archive
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
 theme: ["PaperMod"]
 
 pagination:
@@ -21,156 +21,179 @@ services:
   disqus:
     shortname: arkadys-archive
 
-params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: Arkady's Archive
-  description: "A website by Arkady focused on news and science."
-  keywords: [News, Portfolio, Science, Chemistry, Religion]
-  author: Arkady
-  # author: ["Me", "You"] # multiple authors
-  images: ["/assets/seoCard.png"]
-  DateFormat: "January 2, 2006"
-  defaultTheme: auto # dark, light
-  disableThemeToggle: false
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
 
-  ShowReadingTime: true
-  ShowShareButtons: true
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
-  ShowWordCount: true
-  ShowRssButtonInSectionTermList: true
-  UseHugoToc: true
-  disableSpecial1stPost: false
-  disableScrollToTop: false
-  comments: true
-  enableDisqus: true
-  hidemeta: false
-  hideSummary: false
-  showtoc: false
-  tocopen: false
+languages:
+  en:
+    languageCode: en-us
+    languageName: English
+    weight: 1
+    title: "Arkady's Archive"
+    params:
+      env: production
+      title: "Arkady's Archive"
+      description: "A website by Arkady focused on news and science."
+      keywords: [News, Portfolio, Science, Chemistry, Religion]
+      author: Arkady
+      images: ["/assets/seoCard.png"]
+      DateFormat: "January 2, 2006"
+      defaultTheme: auto
+      disableThemeToggle: false
+      ShowReadingTime: true
+      ShowShareButtons: true
+      ShowPostNavLinks: true
+      ShowBreadCrumbs: true
+      ShowCodeCopyButtons: false
+      ShowWordCount: true
+      ShowRssButtonInSectionTermList: true
+      UseHugoToc: true
+      disableSpecial1stPost: false
+      disableScrollToTop: false
+      comments: true
+      enableDisqus: true
+      hidemeta: false
+      hideSummary: false
+      showtoc: false
+      tocopen: false
+      assets:
+        favicon: "/assets/favicon.ico"
+        favicon16x16: "/assets/favicon-16x16.png"
+        favicon32x32: "/assets/favicon-132x32.png"
+        apple_touch_icon: "/assets/apple-touch-icon.png"
+        safari_pinned_tab: "/assets/safari-pinned-tab.svg"
+      label:
+        text: "Arkady's Archive"
+      homeInfoParams:
+        Title: Home
+        Content: "Welcome to Arkady's Archive!"
+      cover:
+        hidden: true
+        hiddenInList: true
+        hiddenInSingle: true
+      fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.4
+        minMatchCharLength: 0
+        limit: 10
+        keys: ["title", "permalink", "summary", "content"]
+    menu:
+      main:
+        - identifier: Archive
+          name: Archive
+          url: /archive/
+          weight: 10
+        - identifier: Search
+          name: Search
+          url: /search/
+          weight: 20
+        - identifier: Categories
+          name: Categories
+          url: /categories/
+          weight: 30
+        - identifier: Tags
+          name: Tags
+          url: /tags/
+          weight: 40
+        - identifier: About
+          name: About
+          url: /about/
+          weight: 50
 
-  assets:
-    # disableHLJS: true # to disable highlight.js
-    # disableFingerprinting: true
-    favicon: "/assets/favicon.ico"
-    favicon16x16: "/assets/favicon-16x16.png"
-    favicon32x32: "/assets/favicon-132x32.png"
-    apple_touch_icon: "/assets/apple-touch-icon.png"
-    safari_pinned_tab: "/assets/safari-pinned-tab.svg"
+  ru:
+    languageCode: ru-ru
+    languageName: Русский
+    weight: 2
+    title: "Arkady's Archive"
+    params:
+      env: production
+      title: "Arkady's Archive"
+      description: "Сайт Аркадия, посвященный новостям и науке."
+      keywords: [Новости, Портфолио, Наука, Химия, Религия]
+      author: Arkady
+      images: ["/assets/seoCard.png"]
+      DateFormat: "2 January 2006"
+      defaultTheme: auto
+      disableThemeToggle: false
+      ShowReadingTime: true
+      ShowShareButtons: true
+      ShowPostNavLinks: true
+      ShowBreadCrumbs: true
+      ShowCodeCopyButtons: false
+      ShowWordCount: true
+      ShowRssButtonInSectionTermList: true
+      UseHugoToc: true
+      disableSpecial1stPost: false
+      disableScrollToTop: false
+      comments: true
+      enableDisqus: true
+      hidemeta: false
+      hideSummary: false
+      showtoc: false
+      tocopen: false
+      assets:
+        favicon: "/assets/favicon.ico"
+        favicon16x16: "/assets/favicon-16x16.png"
+        favicon32x32: "/assets/favicon-132x32.png"
+        apple_touch_icon: "/assets/apple-touch-icon.png"
+        safari_pinned_tab: "/assets/safari-pinned-tab.svg"
+      label:
+        text: "Arkady's Archive"
+      homeInfoParams:
+        Title: Главная
+        Content: "Добро пожаловать в Arkady's Archive!"
+      cover:
+        hidden: true
+        hiddenInList: true
+        hiddenInSingle: true
+      fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.4
+        minMatchCharLength: 0
+        limit: 10
+        keys: ["title", "permalink", "summary", "content"]
+    menu:
+      main:
+        - identifier: Archive
+          name: Архив
+          url: /archive/
+          weight: 10
+        - identifier: Search
+          name: Поиск
+          url: /search/
+          weight: 20
+        - identifier: Categories
+          name: Категории
+          url: /categories/
+          weight: 30
+        - identifier: Tags
+          name: Теги
+          url: /tags/
+          weight: 40
+        - identifier: About
+          name: О себе
+          url: /about/
+          weight: 50
 
-  label:
-    text: "Arkady's Archive"
-    # icon: /assets/apple-touch-icon.png
-    # iconHeight: 35
-
-  # profile-mode
-  profileMode:
-    enabled: False # needs to be explicitly set
-    title: ExampleSite
-    subtitle: "This is subtitle"
-    imageUrl: "<img location>"
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: my image
-    buttons:
-      - name: Posts
-        url: posts
-      - name: Tags
-        url: tags
-
-  # home-info mode
-  homeInfoParams:
-    Title: Home
-    Content: 
-
-  # socialIcons:
-  #   - name: x
-  #     url: "https://x.com/"
-  #   - name: stackoverflow
-  #     url: "https://stackoverflow.com"
-  #   - name: github
-  #     url: "https://github.com/"
-
-  # analytics:
-  #   google:
-  #     SiteVerificationTag: "XYZabc"
-  #   bing:
-  #     SiteVerificationTag: "XYZabc"
-  #   yandex:
-  #     SiteVerificationTag: "XYZabc"
-
-  cover:
-    hidden: true # hide everywhere but not in structured data
-    hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
-
-  # editPost:
-  #   URL: "https://github.com/<path_to_repo>/content"
-  #   Text: "Suggest Changes" # edit text
-  #   appendFilePath: true # to append file path to Edit link
-
-  # for search
-  # https://fusejs.io/api/options.html
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
-    keys: ["title", "permalink", "summary", "content"]
-menu:
-  main:
-    - identifier: Archive
-      name: Archive
-      url: /archive/
-      weight: 10
-
-    - identifier: Search
-      name: Search
-      url: /search/
-      weight: 20
-
-    - identifier: Categories
-      name: Categories
-      url: /categories/
-      weight: 30
-
-    - identifier: Tags
-      name: Tags
-      url: /tags/
-      weight: 40
-
-    - identifier: About
-      name: About
-      url: /about/
-      weight: 50
-
-    # - identifier: Example
-    #   name: example.org
-    #   url: https://example.org
-    #   weight: 40
-
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 
 markup:
   goldmark:
     renderer:
       unsafe: true
-
   highlight:
     noClasses: false
-    # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    # style: monokai
 
-outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON
+# Custom names for tags and categories
+# taxonomies:
+#   category: categories
+#   tag: tags
