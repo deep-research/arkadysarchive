@@ -24,9 +24,9 @@ services:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Arkady's Archive
-  description: "A website by Arkady Fisher focused on news and science."
+  description: "A website by Arkady focused on news and science."
   keywords: [News, Portfolio, Science, Chemistry, Religion]
-  author: Arkady Fisher
+  author: Arkady
   # author: ["Me", "You"] # multiple authors
   images: ["/assets/seoCard.png"]
   DateFormat: "January 2, 2006"

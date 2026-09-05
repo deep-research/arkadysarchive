@@ -2,7 +2,7 @@
 title: About Liquid Crystal Membrane
 tags: []
 categories: "Liquid Crystal Membrane"
-author: Arkady Fisher
+author: Arkady
 date: 2026-08-26
 showToc: true
 tocOpen: false

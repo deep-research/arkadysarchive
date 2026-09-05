@@ -2,7 +2,7 @@
 title: About News Psychic
 tags: []
 categories: "News Psychic"
-author: Arkady Fisher
+author: Arkady
 date: 2026-08-26
 showToc: true
 tocOpen: false
