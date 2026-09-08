@@ -65,7 +65,7 @@ languages:
         favicon: "/assets/favicon.ico"
         favicon16x16: "/assets/favicon-16x16.png"
         favicon32x32: "/assets/favicon-32x32.png"
-        apple_touch_icon: "/assets/apple_touch_icon.png"
+        apple_touch_icon: "/assets/apple-touch-icon.png"
         safari_pinned_tab: "/assets/favicon.svg"
       label:
         text: "Arkady's Archive"
