@@ -62,11 +62,11 @@ languages:
       assets:
         disableHLJS: true
         disableFingerprinting: true
-        favicon: "/assets/favicon.ico"
-        favicon16x16: "/assets/favicon-16x16.png"
-        favicon32x32: "/assets/favicon-32x32.png"
-        apple_touch_icon: "/assets/apple-touch-icon.png"
-        safari_pinned_tab: "/assets/favicon.svg"
+        favicon: "favicon.ico"
+        favicon16x16: favicon-16x16.png"
+        favicon32x32: "favicon-32x32.png"
+        apple_touch_icon: "apple-touch-icon.png"
+        safari_pinned_tab: "favicon.svg"
       label:
         text: "Arkady's Archive"
       homeInfoParams:
