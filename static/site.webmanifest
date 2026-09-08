@@ -4,9 +4,9 @@
   "description": "A digital archive featuring news and science by Arkady.",
   "start_url": "/",
   "id": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "display": "minimal-ui",
+  "background_color": "transparent",
+  "theme_color": "transparent",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -18,13 +18,7 @@
       "src": "/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/web-app-manifest-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
   "screenshots": [
@@ -32,7 +26,7 @@
       "src": "/seoCard.png",
       "sizes": "1200x630",
       "type": "image/png",
-      "label": "Arkady's Archive Desktop View"
+      "label": "Arkady's Archive Preview"
     }
   ]
 }
