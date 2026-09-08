@@ -5,5 +5,19 @@
 <!-- Web App Manifest -->
 <link rel="manifest" href="/site.webmanifest">
 
-<!-- Apple Web App Title -->
+<!-- Apple & Mobile PWA Meta -->
 <meta name="apple-mobile-web-app-title" content="Arkady's Archive">
+<meta name="theme-color" content="#ffffff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<!-- Service Worker Registration -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then((reg) => console.log('Service Worker registered scope:', reg.scope))
+        .catch((err) => console.error('Service Worker registration failed:', err));
+    });
+  }
+</script>

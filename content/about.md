@@ -6,7 +6,7 @@ url: "/about/"
 
 ## Description
 
-Arkady's Archive is a website featuring news and science work by Arkady. It can be accessed at [arkadysarchive.com](https://arkadysarchive.com).
+Arkady's Archive is a digital archive featuring news and science by Arkady. It can be accessed at [arkadysarchive.com](https://arkadysarchive.com).
 
 ## Categories
 
