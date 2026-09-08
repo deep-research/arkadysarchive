@@ -4,7 +4,7 @@
   "description": "A digital archive featuring news and science by Arkady.",
   "start_url": "/",
   "id": "/",
-  "display": "minimal-ui",
+  "display": "standalone",
   "background_color": "#000000", 
   "theme_color": "#000000",
   "icons": [
@@ -18,7 +18,13 @@
       "src": "/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/web-app-maskable-512x512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "screenshots": [
