@@ -7,46 +7,19 @@
 
 <!-- Apple & Mobile PWA Meta -->
 <meta name="apple-mobile-web-app-title" content="Arkady's Archive">
-<meta name="theme-color" content="#f5f5f5" id="pwa-theme-color">
+
+<!-- ⚡ STEP 1 FIX: Media queries matched exactly to your true archive layout colors -->
+<meta name="theme-color" content="#f5f5f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1d1e20" media="(prefers-color-scheme: dark)">
+
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<!-- Service Worker & Universal Theme Observer -->
+<!-- Service Worker Registration -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js');
     });
   }
-
-  (function() {
-    function forceStatusBarSync() {
-      const metaTag = document.getElementById('pwa-theme-color');
-      if (!metaTag) return;
-
-      // 1. Clear any duplicate theme-color tags PaperMod tries to inject
-      const duplicates = document.querySelectorAll('meta[name="theme-color"]:not(#pwa-theme-color)');
-      duplicates.forEach(tag => tag.remove());
-
-      // 2. Read the live body background (catches dark mode, light mode, posts, and pages)
-      let currentBg = window.getComputedStyle(document.body || document.documentElement).backgroundColor;
-
-      // 3. Backup fallback if layout engine reports transparent during a transition state
-      if (currentBg === 'rgba(0, 0, 0, 0)' || currentBg === 'transparent' || !currentBg) {
-        const isDark = document.body && document.body.classList.contains('dark');
-        currentBg = isDark ? '#1d1e20' : '#f5f5f5';
-      }
-
-      metaTag.setAttribute('content', currentBg);
-    }
-
-    // Safely execute across standard layout cycles
-    forceStatusBarSync();
-    document.addEventListener('DOMContentLoaded', forceStatusBarSync);
-    window.addEventListener('load', forceStatusBarSync);
-
-    // Watch the HTML document node for theme mutations/toggles in real time
-    const observer = new MutationObserver(forceStatusBarSync);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-  })();
 </script>
