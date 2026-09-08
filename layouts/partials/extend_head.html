@@ -7,11 +7,11 @@
 
 <!-- Apple & Mobile PWA Meta -->
 <meta name="apple-mobile-web-app-title" content="Arkady's Archive">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#ffffff" id="pwa-theme-color">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<!-- Service Worker Registration -->
+<!-- Service Worker & Dynamic Status Bar Management -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -20,4 +20,29 @@
         .catch((err) => console.error('Service Worker registration failed:', err));
     });
   }
+
+  (function() {
+    function synchronizeStatusBar() {
+      const metaTag = document.getElementById('pwa-theme-color');
+      if (!metaTag) return;
+      const bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
+      metaTag.setAttribute('content', bodyBgColor);
+    }
+
+    // ⚡ Execute instantly to prevent status bar color flickering on slow connections
+    synchronizeStatusBar();
+
+    // Safety fallback once full DOM layout engine stabilizes
+    document.addEventListener('DOMContentLoaded', synchronizeStatusBar);
+
+    // Listen for PaperMod's manual dark/light toggle button clicks
+    window.addEventListener('load', () => {
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          setTimeout(synchronizeStatusBar, 50);
+        });
+      }
+    });
+  })();
 </script>
