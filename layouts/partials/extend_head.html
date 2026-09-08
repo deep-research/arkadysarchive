@@ -11,49 +11,14 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<!-- Service Worker & Universal Theme Listener -->
+<!-- Service Worker Registration -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js');
     });
   }
-
-  (function() {
-    function synchronizeStatusBar() {
-      const metaTag = document.getElementById('pwa-theme-color');
-      if (!metaTag) return;
-
-      // ⚡ Target the root document element instead of the body
-      const rootStyles = window.getComputedStyle(document.documentElement);
-      
-      // PaperMod stores its active theme background color in the '--theme' CSS variable
-      let activeColor = rootStyles.getPropertyValue('--theme').trim();
-
-      // Fallback to pure white if PaperMod hasn't assigned the variable yet
-      if (!activeColor) {
-        activeColor = '#ffffff';
-      }
-
-      metaTag.setAttribute('content', activeColor);
-    }
-
-    // Run immediately when the file loads (safely targets documentElement/html)
-    synchronizeStatusBar();
-
-    // Safety checks as the page rendering engines finalize layouts
-    document.addEventListener('DOMContentLoaded', synchronizeStatusBar);
-    window.addEventListener('load', synchronizeStatusBar);
-
-    // Watch for theme button clicks
-    window.addEventListener('load', () => {
-      const themeToggle = document.getElementById('theme-toggle') || document.querySelector('.theme-toggle');
-      if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-          // Give PaperMod 40ms to toggle the dark/light classes on the document root
-          setTimeout(synchronizeStatusBar, 40);
-        });
-      }
-    });
-  })();
 </script>
+
+<!-- ⚡ External Theme Synchronization Script -->
+<script src="/js/theme-sync.js" defer></script>
