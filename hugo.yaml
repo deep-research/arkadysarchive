@@ -67,6 +67,7 @@ languages:
         favicon32x32: "favicon-32x32.png"
         apple_touch_icon: "apple-touch-icon.png"
         safari_pinned_tab: "favicon.svg"
+        theme_color: "var(--theme)"
       label:
         text: "Arkady's Archive"
       homeInfoParams:
