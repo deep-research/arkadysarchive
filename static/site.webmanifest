@@ -1,12 +1,12 @@
 {
   "name": "Arkady's Archive",
-  "short_name": "AArchive",
+  "short_name": "A's Archive",
   "description": "A digital archive featuring news and science by Arkady.",
   "start_url": "/",
   "id": "/",
   "display": "minimal-ui",
-  "background_color": "transparent",
-  "theme_color": "transparent",
+  "background_color": "#2e2e33", 
+  "theme_color": "#2e2e33",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
