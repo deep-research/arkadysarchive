@@ -7,13 +7,11 @@
 
 <!-- Apple & Mobile PWA Meta -->
 <meta name="apple-mobile-web-app-title" content="Arkady's Archive">
-<!-- ⚡ Clean Default: Standard websites do not force a hardcoded theme-color meta tag, 
-     but PWAs require a default startup baseline. We leave it as white for the splash screen. -->
 <meta name="theme-color" content="#ffffff" id="pwa-theme-color">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<!-- Service Worker & Conditional PWA Status Bar Management -->
+<!-- Service Worker & Universal Theme Listener -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -22,39 +20,38 @@
   }
 
   (function() {
-    // ⚡ CRUCIAL CHECK: Only run color synchronization if opened inside the installed PWA
-    const isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-    if (!isPWA) {
-      // If it's a normal browser tab, remove our meta tag completely 
-      // so Chrome treats it exactly like any other ordinary website.
-      const metaTag = document.getElementById('pwa-theme-color');
-      if (metaTag) metaTag.remove();
-      return; 
-    }
-
     function synchronizeStatusBar() {
       const metaTag = document.getElementById('pwa-theme-color');
       if (!metaTag) return;
 
-      // Read the true current background color running on the body container (post vs page / light vs dark)
-      let bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
+      // ⚡ Target the root document element instead of the body
+      const rootStyles = window.getComputedStyle(document.documentElement);
       
-      if (bodyBgColor && bodyBgColor !== 'rgba(0, 0, 0, 0)' && bodyBgColor !== 'transparent') {
-        metaTag.setAttribute('content', bodyBgColor);
+      // PaperMod stores its active theme background color in the '--theme' CSS variable
+      let activeColor = rootStyles.getPropertyValue('--theme').trim();
+
+      // Fallback to pure white if PaperMod hasn't assigned the variable yet
+      if (!activeColor) {
+        activeColor = '#ffffff';
       }
+
+      metaTag.setAttribute('content', activeColor);
     }
 
-    // Run across multiple layout cycles inside the PWA to snap colors immediately
+    // Run immediately when the file loads (safely targets documentElement/html)
     synchronizeStatusBar();
+
+    // Safety checks as the page rendering engines finalize layouts
     document.addEventListener('DOMContentLoaded', synchronizeStatusBar);
     window.addEventListener('load', synchronizeStatusBar);
 
-    // Listen for PaperMod's manual dark/light toggle button clicks inside the PWA
+    // Watch for theme button clicks
     window.addEventListener('load', () => {
       const themeToggle = document.getElementById('theme-toggle') || document.querySelector('.theme-toggle');
       if (themeToggle) {
         themeToggle.addEventListener('click', () => {
-          setTimeout(synchronizeStatusBar, 50);
+          // Give PaperMod 40ms to toggle the dark/light classes on the document root
+          setTimeout(synchronizeStatusBar, 40);
         });
       }
     });
