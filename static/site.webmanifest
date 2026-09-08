@@ -32,7 +32,15 @@
       "src": "/seoCard.png",
       "sizes": "1200x630",
       "type": "image/png",
-      "label": "Arkady's Archive Preview"
+      "form_factor": "wide",
+      "label": "Arkady's Archive Desktop View"
+    },
+    {
+      "src": "/mobile-screenshot.png",
+      "sizes": "1080x1080",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Arkady's Archive Mobile View"
     }
   ]
 }
