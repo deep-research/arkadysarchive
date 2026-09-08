@@ -7,37 +7,51 @@
 
 <!-- Apple & Mobile PWA Meta -->
 <meta name="apple-mobile-web-app-title" content="Arkady's Archive">
+<!-- ⚡ Clean Default: Standard websites do not force a hardcoded theme-color meta tag, 
+     but PWAs require a default startup baseline. We leave it as white for the splash screen. -->
 <meta name="theme-color" content="#ffffff" id="pwa-theme-color">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<!-- Service Worker & Dynamic Status Bar Management -->
+<!-- Service Worker & Conditional PWA Status Bar Management -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .then((reg) => console.log('Service Worker registered scope:', reg.scope))
-        .catch((err) => console.error('Service Worker registration failed:', err));
+      navigator.serviceWorker.register('/sw.js');
     });
   }
 
   (function() {
+    // ⚡ CRUCIAL CHECK: Only run color synchronization if opened inside the installed PWA
+    const isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    if (!isPWA) {
+      // If it's a normal browser tab, remove our meta tag completely 
+      // so Chrome treats it exactly like any other ordinary website.
+      const metaTag = document.getElementById('pwa-theme-color');
+      if (metaTag) metaTag.remove();
+      return; 
+    }
+
     function synchronizeStatusBar() {
       const metaTag = document.getElementById('pwa-theme-color');
       if (!metaTag) return;
-      const bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
-      metaTag.setAttribute('content', bodyBgColor);
+
+      // Read the true current background color running on the body container (post vs page / light vs dark)
+      let bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
+      
+      if (bodyBgColor && bodyBgColor !== 'rgba(0, 0, 0, 0)' && bodyBgColor !== 'transparent') {
+        metaTag.setAttribute('content', bodyBgColor);
+      }
     }
 
-    // ⚡ Execute instantly to prevent status bar color flickering on slow connections
+    // Run across multiple layout cycles inside the PWA to snap colors immediately
     synchronizeStatusBar();
-
-    // Safety fallback once full DOM layout engine stabilizes
     document.addEventListener('DOMContentLoaded', synchronizeStatusBar);
+    window.addEventListener('load', synchronizeStatusBar);
 
-    // Listen for PaperMod's manual dark/light toggle button clicks
+    // Listen for PaperMod's manual dark/light toggle button clicks inside the PWA
     window.addEventListener('load', () => {
-      const themeToggle = document.getElementById('theme-toggle');
+      const themeToggle = document.getElementById('theme-toggle') || document.querySelector('.theme-toggle');
       if (themeToggle) {
         themeToggle.addEventListener('click', () => {
           setTimeout(synchronizeStatusBar, 50);
