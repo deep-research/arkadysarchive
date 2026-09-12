@@ -6,16 +6,18 @@ url: "/ru/about/"
 
 ## Описание
 
-Arkady's Archive — это веб-сайт, посвященный новостям и научным работам Аркадия. Сайт доступен по адресу [arkadysarchive.com](https://arkadysarchive.com).
+Arkady's Archive — это цифровой архив, посвященный новостям и науке от Аркадия. С ним можно ознакомиться на сайте [arkadysarchive.com](https://arkadysarchive.com).
 
 ## Категории
 
-Категорию новостей можно найти на сайте [newspsychic.com](https://newspsychic.com), а категорию науки — на [liquidcrystalmembrane.com](https://liquidcrystalmembrane.com).
+Научную категорию можно найти на [liquidcrystalmembrane.com](https://liquidcrystalmembrane.com), а категорию новостей — на [newspsychic.com](https://newspsychic.com).
 
-## Связанный проект
+## Связанные проекты
 
-Arkady's Archive является ответвлением Victor's Archive — цифрового архива, посвященного музыке. Посетить сайт можно по адресу [victorsarchive.com](https://victorsarchive.com).
+Arkady's Archive является ответвлением Victor's Archive — цифрового архива, посвященного музыке. Сайт доступен по адресу [victorsarchive.com](https://victorsarchive.com).
+
+Более старую версию Arkady's Archive можно найти на [prototype.liquidcrystalmembrane.com](https://prototype.liquidcrystalmembrane.com/) и [prototype.newspsychic.com](https://prototype.newspsychic.com/).
 
 ## Контакты
 
-Электронная почта для связи: [arkadysarchive@proton.me](mailto:arkadysarchive@proton.me).
+Электронная почта: [arkadysarchive@proton.me](mailto:arkadysarchive@proton.me).
