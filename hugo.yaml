@@ -67,6 +67,7 @@ languages:
         favicon32x32: "favicon-32x32.png"
         apple_touch_icon: "apple-touch-icon.png"
         safari_pinned_tab: "favicon.svg"
+        theme_color: "#000000"
       label:
         text: "Arkady's Archive"
       homeInfoParams:
@@ -140,11 +141,14 @@ languages:
       showtoc: false
       tocopen: false
       assets:
-        favicon: "/assets/favicon.ico"
-        favicon16x16: "/assets/favicon-16x16.png"
-        favicon32x32: "/assets/favicon-132x32.png"
-        apple_touch_icon: "/assets/apple-touch-icon.png"
-        safari_pinned_tab: "/assets/safari-pinned-tab.svg"
+        disableHLJS: true
+        disableFingerprinting: true
+        favicon: "favicon.ico"
+        favicon16x16: favicon-16x16.png"
+        favicon32x32: "favicon-32x32.png"
+        apple_touch_icon: "apple-touch-icon.png"
+        safari_pinned_tab: "favicon.svg"
+        theme_color: "#000000"
       label:
         text: "Arkady's Archive"
       homeInfoParams:
